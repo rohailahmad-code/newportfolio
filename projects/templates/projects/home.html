@@ -1,0 +1,194 @@
+<!-- templates/main/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+
+    <style>
+        .font-orbitron {
+          font-family: 'Orbitron', sans-serif;
+        }
+    </style>
+
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="{% url 'home' %}" class="text-2xl font-bold text-slate-900 font-orbitron">portfolio</a>
+
+            <div class="space-x-6">
+                <a href="{% url 'home' %}" class="text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="{% url 'projects' %}" class="text-gray-700 hover:text-indigo-600">Projects</a>
+                <a href="{% url 'blogs' %}" class="text-gray-700 hover:text-indigo-600">Blogs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="max-w-5xl mx-auto mt-12 px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div>
+        <h2 class="text-2xl font-semibold mb-2">Hi, I am Rohail</h2>
+        <h3 class="text-lg font-medium text-gray-600">Undergrad AI Student</h3>
+        <p class="mt-2 text-sm italic">I’m passionate about using Artificial Intelligence to build a better, smarter future. 
+            My focus is on creating AI systems that are not only powerful but also safe and trustworthy. With a solid foundation 
+            in machine learning, deep learning, and development. I bring a blend of technical skills and a deep understanding of 
+            human behavior to help me understand how to design systems that are both intelligent and responsible.</p>
+        <p class="mt-2 text-gray-600">Code, Crash, Learn, Repeat</p>
+
+        <!-- Contact Button -->
+        <div class="flex items-center">
+            <a href="mailto:rohailahmad2226@gmail.com" class="inline-block mt-4 bg-gray-100 text-gray-800 px-4 py-2 rounded shadow-sm hover:bg-gray-200">
+                ✉️ Contact Me
+            </a>
+        
+            <!-- Social Icons -->
+            <div class="mt-4 ml-4 flex space-x-4">
+                <a href="https://www.kaggle.com/rohailahmad" target="_blank" class="hover:text-indigo-600">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/kaggle.svg" alt="Kaggle" class="w-6 h-6">
+                </a>
+                <a href="https://github.com/rohailahmad-code" target="_blank" class="hover:text-indigo-600">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-6 h-6">
+                </a>
+                <a href="https://www.linkedin.com/in/rohail-ahmad-8995bb209/" target="_blank" class="hover:text-indigo-600">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-6 h-6">
+                </a>
+                <a href="https://x.com/Rohail_6796" target="_blank" class="hover:text-indigo-600">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" class="w-6 h-6">
+                </a>                
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Profile Image -->
+    <div class="flex justify-center">
+        <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Profile" class="rounded-full w-40 h-40 object-cover">
+    </div>
+</section>
+
+
+    <!-- Projects Section -->
+    <main class="max-w-5xl mx-auto px-4 py-12">
+        <h1 class="text-3xl text-slate-900 font-semibold mb-8 text-center">Featured Projects</h1>
+    
+        <div class="grid gap-8 sm:grid-cols-2">
+            {% for project in projects %}
+            <!-- Project Card -->
+            <div class="border rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-slate-900">{{ project.title }}</h2>
+                <p class="text-base text-gray-800 mt-2">{{ project.description }}</p>
+                <div class="mt-4 space-x-4 text-base">
+                    {% if project.live_demo_url %}
+                    <a href="{{ project.live_demo_url }}" class="text-slate-900 underline">Live Demo</a>
+                    {% endif %}
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" class="text-slate-900 underline">GitHub</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <p>No projects found.</p>
+            {% endfor %}
+        </div>
+    
+        <!-- See All Projects Button -->
+        <div class="text-center mt-12">
+            <a href="{% url 'projects' %}" class="inline-block bg-slate-600 text-white px-6 py-2 rounded-lg text-base font-medium hover:bg-slate-700 transition">
+                See All Projects
+            </a>
+        </div>
+    </main>
+    
+    
+    
+    
+
+   <!-- Experience & Skills Section -->
+<section class="max-w-5xl mx-auto px-6 mt-20">
+    <h2 class="text-2xl font-bold mb-10 text-center">Experience & Skills</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <!-- Experience -->
+        <div class="md:col-span-1">
+            <h3 class="text-xl font-semibold mb-4">Experience</h3>
+            <ul class="space-y-4">
+                <li>
+                    <h4 class="font-bold text-slate-600">Data Science Intern</h4>
+                    <p class="text-sm text-gray-600">Advnaced Telecom Services – Oct 2023 - Nov 2023 | 2 mos</p>
+                    <p class="text-gray-700">Worked with Python (NumPy, Pandas, Matplotlib, Seaborn), PowerBI,
+                        and Azure.</p>
+                </li>
+                <li>
+                    <h4 class="font-bold text-slate-600">Frontend Intern</h4>
+                    <p class="text-sm text-gray-600">Smartech Solution – Aug 2023 - Sep 2023 | 2 mos</p>
+                    <p class="text-gray-700">Worked with HTML, CSS, JavaScript, React.js, and Next.js</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Divider -->
+        <div class="hidden md:flex justify-center">
+            <div class="w-0.5 bg-gray-300 h-full"></div>
+        </div>
+
+        <!-- Skills -->
+        <div class="md:col-span-1">
+            <h3 class="text-xl font-semibold mb-4">Skills</h3>
+            <div>
+                <h3 class="text-lg font-bold text-slate-800">🧠 Core AI Skills</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                  <li>Machine Learning, Deep Learning, Natural Language Processing (NLP), Computer Vision, Neural Networks (CNNs, RNNs, Transformers), Reinforcement Learning, Model Evaluation & Tuning</li>
+                </ul>
+              </div>
+            
+              <!-- Tools & Frameworks -->
+              <div>
+                <h3 class="text-lg font-bold text-slate-800">🛠️ Tools & Frameworks</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                  <li>Python (NumPy, Pandas, Scikit-learn), TensorFlow / Keras, PyTorch, OpenCV, Hugging Face Transformers, Jupyter Notebooks, Google Colab</li>
+                </ul>
+              </div>
+            
+              <!-- Data Skills -->
+              <div>
+                <h3 class="text-lg font-bold text-slate-800">📊 Data Skills</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                  <li>Data Preprocessing, Feature Engineering, Exploratory Data Analysis (EDA), Data Visualization (Matplotlib, Seaborn, Plotly), Data Collection & Cleaning</li>
+                </ul>
+              </div>
+            
+              <!-- Deployment & Utilities -->
+              <div>
+                <h3 class="text-lg font-bold text-slate-800">🚀 Deployment & Utilities</h3>
+                <ul class="list-disc pl-5 text-gray-700">
+                  <li>Model Deployment (Flask / FastAPI / Streamlit), REST APIs for AI Models, ONNX / TensorRT (for optimization), MLOps Basics, Git & GitHub (Version Control)</li>
+                </ul>
+              </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Clean Enhanced Footer -->
+<footer class="bg-white border-t mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center text-sm text-gray-600 space-y-2">
+        <div class="space-x-4">
+            <a href="{% url 'home' %}" class="hover:underline">Home</a>
+            <a href="{% url 'projects' %}" class="hover:underline">Projects</a>
+            <a href="{% url 'blogs' %}" class="hover:underline">Blogs</a>
+            <a href="mailto:rohail@example.com" class="hover:underline">Contact</a>
+        </div>
+        <p>Made with 🧠 by Rohail</p>
+        <p class="text-xs text-gray-400">&copy; {{ now|date:"Y" }} Rohail Ahmad. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

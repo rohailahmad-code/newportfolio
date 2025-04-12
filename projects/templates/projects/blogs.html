@@ -1,0 +1,77 @@
+<!-- templates/main/blogs.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+
+    <style>
+        .font-orbitron {
+          font-family: 'Orbitron', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navbar -->
+    <nav class="border-b">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="{% url 'home' %}" class="text-2xl font-bold text-slate-600 font-orbitron">portfolio</a>
+            <div class="space-x-6 text-base">
+                <a href="{% url 'home' %}" class="text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="{% url 'projects' %}" class="text-gray-700 hover:text-indigo-600">Projects</a>
+                <a href="{% url 'blogs' %}" class="text-gray-700 hover:text-indigo-600">Blogs</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="text-center py-12">
+        <h1 class="text-4xl font-bold text-slate-700 mb-2">📝 Explore My Blogs</h1>
+        <p class="text-gray-600 text-lg">Insights, ideas, and stories from my journey in tech and beyond.</p>
+    </section>
+
+    <!-- Blog Section -->
+    <div class="flex justify-center">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full px-4">
+            {% for blog in blogs %}
+            <div class="bg-white rounded-xl shadow p-5">
+                {% if blog.image %}
+                <img src="{{ blog.image.url }}" class="w-full h-40 object-cover mb-3 rounded">
+                {% endif %}
+                <h2 class="text-2xl font-semibold text-slate-600 mb-2">
+                    <a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a>
+                </h2>
+                <p class="text-gray-700 mb-3">{{ blog.content|truncatechars:150 }}</p>
+                <p class="text-sm text-gray-500">Posted on {{ blog.created_at|date:"M d, Y" }}</p>
+                <a href="{% url 'blog_detail' blog.pk %}" class="text-indigo-600 text-sm underline">Read more</a>
+                
+            </div>
+            {% empty %}
+            <p>No blogs found.</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+
+    <!-- Clean Enhanced Footer -->
+<footer class="bg-white border-t mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center text-sm text-gray-600 space-y-2">
+        <div class="space-x-4">
+            <a href="{% url 'home' %}" class="hover:underline">Home</a>
+            <a href="{% url 'projects' %}" class="hover:underline">Projects</a>
+            <a href="{% url 'blogs' %}" class="hover:underline">Blogs</a>
+            <a href="mailto:rohail@example.com" class="hover:underline">Contact</a>
+        </div>
+        <p>Made with 🧠 by Rohail</p>
+        <p class="text-xs text-gray-400">&copy; {{ now|date:"Y" }} Rohail Ahmad. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
