@@ -85,10 +85,10 @@
                 <p class="text-base text-gray-800 mt-2">{{ project.description }}</p>
                 <div class="mt-4 space-x-4 text-base">
                     {% if project.live_demo_url %}
-                    <a href="{{ project.live_demo_url }}" class="text-slate-900 underline">Live Demo</a>
+                    <a href="{{ project.live_demo_url }}" target="_blank" class="text-slate-900 underline">Live Demo</a>
                     {% endif %}
                     {% if project.github_url %}
-                    <a href="{{ project.github_url }}" class="text-slate-900 underline">GitHub</a>
+                    <a href="{{ project.github_url }}" target="_blank" class="text-slate-900 underline">GitHub</a>
                     {% endif %}
                 </div>
             </div>
@@ -141,33 +141,33 @@
         <div class="md:col-span-1">
             <h3 class="text-xl font-semibold mb-4">Skills</h3>
             <div>
-                <h3 class="text-lg font-bold text-slate-800">🧠 Core AI Skills</h3>
+                <h3 class="text-lg font-bold text-slate-800">Core AI Skills</h3>
                 <ul class="list-disc pl-5 text-gray-700">
-                  <li>Machine Learning, Deep Learning, Natural Language Processing (NLP), Computer Vision, Neural Networks (CNNs, RNNs, Transformers), Reinforcement Learning, Model Evaluation & Tuning</li>
+                  <p>Machine Learning, Deep Learning, Natural Language Processing (NLP), Computer Vision, Neural Networks (CNNs, RNNs, Transformers), Reinforcement Learning, Model Evaluation & Tuning</p>
                 </ul>
               </div>
             
               <!-- Tools & Frameworks -->
               <div>
-                <h3 class="text-lg font-bold text-slate-800">🛠️ Tools & Frameworks</h3>
+                <h3 class="text-lg font-bold text-slate-800">Tools & Frameworks</h3>
                 <ul class="list-disc pl-5 text-gray-700">
-                  <li>Python (NumPy, Pandas, Scikit-learn), TensorFlow / Keras, PyTorch, OpenCV, Hugging Face Transformers, Jupyter Notebooks, Google Colab</li>
+                  <p>Python (NumPy, Pandas, Scikit-learn), TensorFlow / Keras, PyTorch, OpenCV, Hugging Face Transformers, Jupyter Notebooks, Google Colab</p>
                 </ul>
               </div>
             
               <!-- Data Skills -->
               <div>
-                <h3 class="text-lg font-bold text-slate-800">📊 Data Skills</h3>
+                <h3 class="text-lg font-bold text-slate-800">Data Skills</h3>
                 <ul class="list-disc pl-5 text-gray-700">
-                  <li>Data Preprocessing, Feature Engineering, Exploratory Data Analysis (EDA), Data Visualization (Matplotlib, Seaborn, Plotly), Data Collection & Cleaning</li>
+                  <p>Data Preprocessing, Feature Engineering, Exploratory Data Analysis (EDA), Data Visualization (Matplotlib, Seaborn, Plotly), Data Collection & Cleaning</p>
                 </ul>
               </div>
             
               <!-- Deployment & Utilities -->
               <div>
-                <h3 class="text-lg font-bold text-slate-800">🚀 Deployment & Utilities</h3>
+                <h3 class="text-lg font-bold text-slate-800">Deployment & Utilities</h3>
                 <ul class="list-disc pl-5 text-gray-700">
-                  <li>Model Deployment (Flask / FastAPI / Streamlit), REST APIs for AI Models, ONNX / TensorRT (for optimization), MLOps Basics, Git & GitHub (Version Control)</li>
+                  <p>Model Deployment (Flask / FastAPI / Streamlit), REST APIs for AI Models, ONNX / TensorRT (for optimization), MLOps Basics, Git & GitHub (Version Control)</p>
                 </ul>
               </div>
         </div>
