@@ -32,7 +32,11 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = ENVIRONMENT == 'development'
 
 # Hosts allowed to access the site
-ALLOWED_HOSTS = ['*'] if DEBUG else ['yourdomain.com']
+# ALLOWED_HOSTS = ['*'] if DEBUG else ['yourdomain.com']
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'rohail.up.railway.app']
+
+CSRF_TRUSTED_ORIGINS = ['https://rohail.up.railway.app']
 
 # Installed apps
 INSTALLED_APPS = [
