@@ -32,7 +32,9 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = ENVIRONMENT == 'development'
 
 # Hosts allowed to access the site
-ALLOWED_HOSTS = ['*'] if DEBUG else ['yourdomain.com']
+# ALLOWED_HOSTS = ['*'] if DEBUG else ['yourdomain.com']
+ALLOWED_HOSTS = ['rohail.up.railway.app']
+
 
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'rohail.up.railway.app']
 
@@ -132,3 +134,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add at the bottom of settings.py
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
